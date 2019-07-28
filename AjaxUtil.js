@@ -8,7 +8,7 @@ var AjaxUtil = function(settings){
     settings.data       = settings.data || {};
     settings.success    = settings.success || new Function();
     settings.error      = settings.error || new Function();
-    if (settings.type.toUpperCase() === "GET"){
+    if (settings.type.toUpperCase() === "GET" && settings.url !== undefined){
         http.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200){
                 settings.success(JSON.parse(http.responseText));
@@ -20,7 +20,7 @@ var AjaxUtil = function(settings){
         http.open('GET', settings.url, true);
         http.send();
     }
-    if (settings.type.toUpperCase() === "POST"){
+    if (settings.type.toUpperCase() === "POST" && settings.url !== undefined){
         var params = new FormData();
         Object.keys(settings.data).forEach(function(valor, index){
             params.append(valor, settings.data[valor])
@@ -33,13 +33,16 @@ var AjaxUtil = function(settings){
             settings.error(http.responseText)
         }
         http.send(params);
-        }
+    }
     if (settings.type.toUpperCase() !== "POST" && settings.type.toUpperCase() !== "GET"){
-        console.error("Propiedad Type Invalida");
         var err = new Error("El Tipo del Metodo debe ser POST o GET")
         settings.error(err);
-        }
+        throw "Propiedad 'type' Invalida!!!";
     }
+    if (settings.url === undefined){
+        throw "Propiedad 'url' no puede estar vacia!!!";
+    }
+}
 
     // AjaxUtil({
     //     url: "https://jsonplaceholder.typicode.com/users/",
