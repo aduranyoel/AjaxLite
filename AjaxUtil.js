@@ -22,7 +22,7 @@ var AjaxUtil = function(settings){
     }
     if (settings.type.toUpperCase() === "POST" && settings.url !== undefined){
         var params = new FormData();
-        Object.keys(settings.data).forEach(function(valor, index){
+        Object.keys(settings.data).forEach(function(valor){
             params.append(valor, settings.data[valor])
         })
         http.open('POST', settings.url, true);
