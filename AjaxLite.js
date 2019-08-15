@@ -1,7 +1,7 @@
 'use strict';
 
 //AJAXUTIL
-var AjaxUtil = function(settings){
+var AjaxLite = function(settings){
     var http            = new XMLHttpRequest();
     var settings        = settings || {};
     settings.type       = settings.type || "POST";
@@ -44,7 +44,7 @@ var AjaxUtil = function(settings){
     }
 }
 
-    // AjaxUtil({
+    // AjaxLite({
     //     url: "https://jsonplaceholder.typicode.com/users/",
     //     type: "GET",
     //     success: function(data){
@@ -54,7 +54,7 @@ var AjaxUtil = function(settings){
     //         console.log("ERROR", err)
     //     }
     // })
-    // AjaxUtil({
+    // AjaxLite({
     //     url: "https://reqres.in/api/users/",
     //     type: "POST",
     //     data: {
