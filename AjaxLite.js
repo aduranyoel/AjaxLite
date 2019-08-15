@@ -1,6 +1,5 @@
 'use strict';
 
-//AJAXUTIL
 var AjaxLite = function(settings){
     var http            = new XMLHttpRequest();
     var settings        = settings || {};
