@@ -1,5 +1,5 @@
 ```
- AjaxUtil({
+ AjaxLite({
         url: "https://jsonplaceholder.typicode.com/users/",
         type: "GET",
         success: function(data){
@@ -9,7 +9,7 @@
             console.log("ERROR")
         }
     })
-    AjaxUtil({
+    AjaxLite({
         url: "https://reqres.in/api/users/",
         type: "POST",
         data: {

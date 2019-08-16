@@ -1,6 +1,5 @@
-'use strict';
-
 var AjaxLite = function(settings){
+    'use strict';
     var http            = new XMLHttpRequest();
     var settings        = settings || {};
     settings.type       = settings.type || "POST";
