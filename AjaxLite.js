@@ -66,3 +66,15 @@ var AjaxLite = function(settings){
     //         console.log("ERROR")
     //     }
     // })
+
+//var client = new XMLHttpRequest();
+//client.open("GET", "https://reqres.in/api/users?page=2", true);
+//client.send();
+
+//client.onreadystatechange = function() {
+//if(this.readyState == this.HEADERS_RECEIVED) {
+//    var contentType = client.getResponseHeader("Content-Type");
+//    console.log(contentType.split(';')[0])
+//}
+//}
+
