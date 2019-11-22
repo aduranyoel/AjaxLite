@@ -25,10 +25,6 @@ var AjaxLite = function (settings) {
         http.send();
     }
     if (settings.type.toUpperCase() === "POST" && settings.url !== undefined) {
-        var params = new FormData();
-        Object.keys(settings.data).forEach(function (valor) {
-            params.append(valor, settings.data[valor]);
-        });
         http.open('POST', settings.url, true);
         http.onreadystatechange = function () {
             if (this.readyState === 4) {
@@ -43,7 +39,8 @@ var AjaxLite = function (settings) {
         http.onerror = function () {
             settings.error(http.responseText);
         };
-        http.send(params);
+        http.setRequestHeader("Content-Type", settings.contentType ? settings.contentType : "application/json; charset=utf-8");
+        http.send(JSON.stringify(settings.data));
     }
     if (settings.type.toUpperCase() !== "POST" && settings.type.toUpperCase() !== "GET") {
         var err = new Error("El Tipo del Metodo debe ser POST o GET");
